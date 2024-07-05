@@ -1,0 +1,84 @@
+@import '../index.scss';
+
+.navbar-brand {
+    a {
+        color: $text-color;
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        padding: 0 3rem;
+    }
+
+    a:hover {
+        font-size: 1.9rem;
+        color: $link-hover-color;
+    }
+}
+
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $primary-color;
+    color: $text-color;
+
+    transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+}
+
+.scrolled {
+    padding: 0.1rem 0 0.2rem 0;
+    background-color: rgba($color: $primary-color, $alpha: 0.95)
+}
+
+.notScrolled {
+    padding: 1rem 0 1.1rem 0;
+    background-color: rgba($color: $primary-color, $alpha: 1)
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+
+    padding: 0 3rem;
+    transition: transform 0.3s ease-in-out;
+
+    li a {
+        color: $text-color;
+        text-decoration: none;
+        font-size: 1.1rem;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s ease-in-out;
+        font-weight: bold;
+    }
+
+    li a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $link-underline-color;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    li a:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+    li a:hover {
+        color: $link-hover-color;
+    }
+
+}
