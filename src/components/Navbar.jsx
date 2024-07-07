@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../style/Navbar.scss'; // Stil dosyasını daha sonra oluşturacağız
 
 const Navbar = () => {
@@ -28,9 +29,9 @@ const Navbar = () => {
                 <a href="#home">My Portfolio</a>
             </div>
             <ul className="navbar-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><Link to="/">About</Link></li>
+                <li><Link to="/projects">Projects</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </nav>
     );

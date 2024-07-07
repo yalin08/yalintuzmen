@@ -1,0 +1,42 @@
+@import '../index.scss';
+
+.not-found-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #fafafa;
+
+    .not-found-title {
+        font-size: 6rem;
+        margin: 0;
+        color: $primary-color;
+    }
+
+    .not-found-message {
+        font-size: 1.5rem;
+        color: $primary-color;
+    }
+
+    .not-found-link {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: $primary-color;
+        text-decoration: none;
+        border: 1px solid $secondary-color;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $text-color;
+        }
+    }
+
+    img {
+        height: 250px;
+    }
+}

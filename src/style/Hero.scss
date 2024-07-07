@@ -45,14 +45,18 @@
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    transition:
+        background-color 0.3s ease-in-out,
+        padding 0.3s ease-in-out;
 
+    &:hover {
+        background-color: #bb47ff;
+
+        padding: 0.9rem 1.7rem;
+    }
 }
 
-.btn:hover {
-    background-color: #bb47ff;
-    padding: 0.9rem 1.7rem;
-}
+
 
 .btn::before {
     content: '';
