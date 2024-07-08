@@ -10,6 +10,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
 
+    {/* <Navbar />
+    <Hero /><Hero />*/}
     <BrowserRouter>
 
 
@@ -17,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <Routes>
 
+        <Route path="" element={<Hero />} />
         <Route path="" element={<Hero />} />
         <Route path="*" element={<NotFound />} />
 

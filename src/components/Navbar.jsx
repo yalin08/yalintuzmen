@@ -24,14 +24,17 @@ const Navbar = () => {
 
 
     return (
+
+
         <nav className={`navbar ${isScrolled ? 'scrolled' : 'notScrolled'}`}>
-            <div className="navbar-brand">
-                <a href="#home">My Portfolio</a>
+            <div className="navbar__logo">
+                <a href="/">MyPortfolio</a>
             </div>
-            <ul className="navbar-links">
-                <li><Link to="/">About</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+            <ul className="navbar__links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     );
