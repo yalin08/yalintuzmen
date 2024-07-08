@@ -20,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
 
         <Route path="" element={<Hero />} />
+        <Route path="" element={<Hero />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
