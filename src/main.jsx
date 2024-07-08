@@ -10,6 +10,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
 
+    {/* <Navbar />
+    <Hero /><Hero />*/}
     <BrowserRouter>
 
 
