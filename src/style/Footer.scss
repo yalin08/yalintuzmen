@@ -1,0 +1,38 @@
+@import '../index.scss';
+
+.footer {
+    background-color: $primary-color;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: $main-font;
+    color: $text-color;
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__links {
+            margin-bottom: 1rem;
+
+            a {
+                color: $text-color;
+                margin: 0 1rem;
+                text-decoration: none;
+                transition: color 0.3s ease, border-bottom 0.3s ease;
+                border-bottom: 2px solid transparent;
+
+                &:hover {
+                    color: $link-hover-color;
+                    border-bottom: 2px solid $link-hover-color;
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

@@ -1,6 +1,11 @@
 @import '../index.scss';
 
-$bg-image: url("../assets/img/3654748a0215d4816e946aa6a54414c50383d27b.gif");
+
+:root {
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$background-color};
+}
+
 
 
 .hero {
@@ -8,7 +13,13 @@ $bg-image: url("../assets/img/3654748a0215d4816e946aa6a54414c50383d27b.gif");
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, $primary-color 25%, $background-color 100%);
+    animation: gradientExpand 2s;
+
+    $percent: 25;
+
+    // background: linear-gradient(135deg, $primary-color, $background-color #{$percent + "%"});
+
+
     text-align: center;
     padding: 0 2rem;
     position: relative;
@@ -37,14 +48,14 @@ $bg-image: url("../assets/img/3654748a0215d4816e946aa6a54414c50383d27b.gif");
         border-radius: 50%;
         transform: translate(-50%, -50%);
         opacity: 0.2;
-
+        pointer-events: none;
     }
 
     &__content {
         position: relative;
         z-index: 2;
         max-width: 800px;
-        background-color: rgba($color: $primary-color, $alpha: 0.5);
+        background-color: rgba($primary-color, 0.5);
         padding: 25px;
         border-radius: 25px;
 

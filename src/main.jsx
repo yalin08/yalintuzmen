@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import NotFound from './components/NotFound.jsx';
+import Footer from './components/Footer.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,6 +25,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="*" element={<NotFound />} />
 
       </Routes>
+
+      <Footer />
     </BrowserRouter>
 
 
