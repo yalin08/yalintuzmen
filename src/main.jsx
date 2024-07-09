@@ -7,7 +7,7 @@ import Hero from './components/Hero.jsx'
 import NotFound from './components/NotFound.jsx';
 import Footer from './components/Footer.jsx';
 import PostList from './components/Blog/PostList.jsx';
-import { ApiContextProvider } from './components/Blog/ApiContext.jsx';
+import { ApiContextProvider } from "./Context/ApiContext.jsx";
 import LoadingPage from './components/LoadingPage.jsx';
 
 

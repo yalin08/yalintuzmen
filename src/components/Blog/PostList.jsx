@@ -1,29 +1,38 @@
-import React, { useContext, useEffect } from 'react';
-import { ApiContext } from "./ApiContext";
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ApiContext } from '../../Context/ApiContext';
+import '../../style/PostList.scss';
 import LoadingPage from '../LoadingPage';
 
-const PostList = () => {
-
+const BlogHome = () => {
     const { posts, isLoading } = useContext(ApiContext);
-    console.log("isloading=" + isLoading.read);
 
+    useEffect(() => {
+        // Fetch posts here if needed on initial load
+    }, []);
+
+    if (!isLoading.read)
+        return (
+            <>
+                <LoadingPage />
+            </>
+        )
 
 
 
     return (
-        <>
-            <LoadingPage />
-        </>
-    )
+        <div className="blog-home">
+            <h1 className="blog-title">Blog</h1>
+            <div className="post-list">
+                {posts.map((post) => (
+                    <Link to={`/post/${post.id}`} key={post.id} className="post-card">
+                        <h2 className="post-title">{post.title}</h2>
+                        <p className="post-body">{post.content}</p>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+};
 
-
-    //  if (isLoading.read)
-    //   console.log(posts);
-
-    return (
-        <div>PostList</div>
-    )
-}
-
-export default PostList
+export default BlogHome;
