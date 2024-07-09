@@ -1,0 +1,29 @@
+/* HTML: <div class="loader"></div> */
+.loading {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+
+    .loader {
+
+
+        width: 420px;
+        height: 40px;
+        transform: skewX(-45deg);
+        background:
+            linear-gradient(#f03355 0 0) left -60px top 0/60px 40px no-repeat #ccc;
+        animation: l3 1s infinite linear;
+    }
+
+}
+
+
+@keyframes l3 {
+    100% {
+        background-position: right -30px top 0
+    }
+}
