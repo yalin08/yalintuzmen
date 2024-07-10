@@ -8,15 +8,13 @@ export const ApiContextProvider = ({ children }) => {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState({
-        read: false,
-        add: false,
-        delete: [],
-        update: false,
+        readPage: true,
+        readAll: true
     });
 
 
+
     useEffect(() => {
-        const random = Math.random() * 1000;
         setTimeout(() => {
 
             const getPosts = async () => {
@@ -27,9 +25,7 @@ export const ApiContextProvider = ({ children }) => {
                         .then((response) => {
                             setPosts(response.data);
                         });
-
-                    setIsLoading((prevIsLoading) => ({ ...prevIsLoading, read: true }));
-
+                    setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readAll: true }));
                 } catch (error) {
                     console.log(error);
                 }
@@ -37,23 +33,26 @@ export const ApiContextProvider = ({ children }) => {
 
             }
             getPosts();
-        }, 1000 + random)
+        }, 300)
 
 
 
-    }, []);
+    }, [posts]);
 
 
     const getPostsPagination = async (page, pageSize) => {
         try {
 
+
             const response = await axios.get(`https://portfolioblogapi.azurewebsites.net/api/Post/GetAllPagination?page=${page}&pageSize=${pageSize}`);
+            setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readPage: true }));
             return response.data;
         } catch (error) {
-            console.log("Error fetching post by id:", error);
+            console.log("Error fetching posts:", error);
             throw error;
         }
     };
+
 
 
 
@@ -72,7 +71,7 @@ export const ApiContextProvider = ({ children }) => {
 
 
     return (
-        <ApiContext.Provider value={{ posts, isLoading, getPostById, getPostsPagination }}>
+        <ApiContext.Provider value={{ posts, isLoading, setIsLoading, getPostById, getPostsPagination }}>
             {children}
         </ApiContext.Provider>
 
