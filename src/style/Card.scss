@@ -1,0 +1,71 @@
+@import '../index.scss';
+
+.container {
+    background: linear-gradient(145deg, $primary-color, $background-color);
+    min-height: 90vh;
+    margin: 0 0 0 0;
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.card {
+    margin: 7rem 0 0 0;
+    box-shadow: 0 5px 15px rgba($primary-color, 0.5);
+    width: 80%;
+    padding: 0 25px;
+    border-radius: 25px 25px 0 0;
+
+    background-color: $background-color;
+
+    .card-header {
+        text-align: center;
+
+        padding-top: 2rem;
+
+
+        .card-title {
+            font-size: 2.5rem;
+            color: $primary-color;
+            border-bottom: 0.5rem solid $primary-color;
+
+            margin: 0 10rem 0 10rem;
+
+        }
+    }
+
+    .card-body {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+
+        .card-image {
+            align-self: center;
+
+
+
+            img {
+                border-radius: 8px;
+                max-height: 250px;
+                width: 100%;
+                height: auto;
+
+            }
+        }
+
+        .card-content {
+            margin-top: 1rem;
+            text-align: start;
+
+            p {
+                padding: 0 15px 0 15px;
+                font-size: 1.3rem;
+                color: $primary-color;
+                line-height: 1.6;
+            }
+        }
+    }
+}
