@@ -45,19 +45,31 @@ const HeroSection = () => {
       const elements = document.querySelectorAll('.hero__background-effect');
 
 
-      elements.forEach((element, index) => {
-        const speed = element.getAttribute('data-speed') || 10;
-        const translateX = (index + 1) * (window.innerWidth - event.pageX * speed) / 150;
-        const translateY = (index + 1) * (window.innerHeight - event.pageY * speed) / 150;
-        element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
-        console.log(element.style.width);
+      if (event) {
+        elements.forEach((element, index) => {
+          const speed = element.getAttribute('data-speed') || 15;
+          const translateX = (index + 1) * (window.innerWidth - event.pageX * speed) / 150;
+          const translateY = (index + 1) * (window.innerHeight - event.pageY * speed) / 150;
+          element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
 
-        element.style.width = 300 / (index + 1) + "px"
-        element.style.height = 300 / (index + 1) + "px"
-      });
+        });
+      }
+      else {
+        elements.forEach((element, index) => {
+          const speed = element.getAttribute('data-speed') || 15;
+          const translateX = (index + 1) * (window.innerWidth - 450 * speed) / 150;
+          const translateY = (index + 1) * (window.innerHeight - 450 * speed) / 150;
+          element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
 
+
+          element.style.width = 300 / (index + 1) + "px"
+          element.style.height = 300 / (index + 1) + "px"
+        });
+      }
 
     };
+
+    handleMouseMove();
 
     const hero = document.querySelector('.hero');
 
