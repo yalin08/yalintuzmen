@@ -66,6 +66,68 @@
                 color: $primary-color;
                 line-height: 1.6;
             }
+
+            .card-date {
+                margin-top: 100px;
+                font-size: 1.1rem;
+                color: rgba($primary-color, 0.5);
+            }
         }
     }
+}
+
+.comment-list {
+    border-top: black 5px;
+    display: flex;
+
+    margin: 50px 250px 100px 250px;
+    flex-direction: column;
+    gap: 20px;
+
+    .comment-card {
+        background-color: $text-color;
+
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+
+
+    .sender-container {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+
+        .comment-sender {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+    }
+
+
+
+
+    .message-container {
+
+        background-color: rgba($background-color, 0.5);
+        padding: 5px;
+
+
+        .comment-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: $primary-color;
+            margin-bottom: 5px;
+        }
+
+        .comment-message {
+            font-size: 1rem;
+
+            color: $primary-color;
+        }
+    }
+
+
 }

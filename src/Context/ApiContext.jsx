@@ -7,11 +7,56 @@ export const ApiContext = createContext();
 export const ApiContextProvider = ({ children }) => {
 
     const [posts, setPosts] = useState([]);
+    const [ip, setIp] = useState([]);
     const [isLoading, setIsLoading] = useState({
         readPage: true,
         readAll: true
     });
 
+
+
+
+
+    const senderIP = async () => {
+
+        const response = await axios
+            .get("https://api.ipify.org?format=json").then((x) => {
+                return x;
+            })
+
+        return response;
+
+    }
+
+
+    const getCommentByPostId = async (postId) => {
+
+        const response = await axios
+            .get("https://portfolioblogapi.azurewebsites.net/api/Comment/GetComment?postId=" + postId).then((x) => {
+                return x;
+            })
+
+        return response;
+
+    }
+
+
+
+    const postComment = async (postId, sender, title, message) => {
+
+        const comment = {
+            sender: sender,
+            senderIP: await senderIP(),
+            title: title,
+            message: message,
+
+            postId: postId
+        }
+
+    }
+
+
+    // postComment(1, "yalin", "selam", "meraba")
 
 
     useEffect(() => {
@@ -71,7 +116,7 @@ export const ApiContextProvider = ({ children }) => {
 
 
     return (
-        <ApiContext.Provider value={{ posts, isLoading, setIsLoading, getPostById, getPostsPagination }}>
+        <ApiContext.Provider value={{ posts, isLoading, getCommentByPostId, senderIP, setIsLoading, getPostById, getPostsPagination }}>
             {children}
         </ApiContext.Provider>
 

@@ -11,14 +11,14 @@ const BlogHome = () => {
     const pageSize = 5; // Sayfa başına gösterilecek post sayısı
     const location = useLocation();
 
+
+
+
+
     useEffect(() => {
         setIsLoading((prev) => ({ ...prev, readAll: false }));
         setIsLoading((prev) => ({ ...prev, readPage: false }));
-
-
-
     }, []);
-    console.log(isLoading);
     useEffect(() => {
         const pathParts = location.pathname.split('/');
         const page = parseInt(pathParts[pathParts.length - 1]) || 1;
@@ -41,6 +41,7 @@ const BlogHome = () => {
             }
         };
         fetchPosts();
+
 
 
 
