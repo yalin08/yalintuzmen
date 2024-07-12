@@ -4,7 +4,7 @@ import { ApiContext } from '../../Context/ApiContext';
 import '../../style/PostList.scss';
 import LoadingPage from '../LoadingPage';
 const BlogHome = () => {
-    const { posts, getPostsPagination, isLoading, setIsLoading } = useContext(ApiContext);
+    const { getPosts, getPostsPagination, isLoading, setIsLoading } = useContext(ApiContext);
     const [postsPagination, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(5);
@@ -19,23 +19,27 @@ const BlogHome = () => {
         setIsLoading((prev) => ({ ...prev, readAll: false }));
         setIsLoading((prev) => ({ ...prev, readPage: false }));
     }, []);
+
+
     useEffect(() => {
         const pathParts = location.pathname.split('/');
         const page = parseInt(pathParts[pathParts.length - 1]) || 1;
         setCurrentPage(page);
     }, [location]);
 
+
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const postCount = posts.length;
+                const posts = await getPosts();
                 const data = await getPostsPagination(currentPage, pageSize);
                 setPosts(data);
 
+                console.log(posts.length / pageSize)
 
 
-
-                setTotalPages(Math.ceil(postCount / pageSize));
+                setTotalPages(Math.ceil(posts.length / pageSize));
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -45,14 +49,13 @@ const BlogHome = () => {
 
 
 
-    }, [isLoading]);
+    }, []);
 
-
-
+    // console.log(totalPages);
 
     return (
 
-        isLoading.readPage && isLoading.readAll ?
+        (isLoading.readPage && isLoading.readAll) ?
 
             (<div className="blog-home">
                 <div className="blog-header">

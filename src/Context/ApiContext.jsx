@@ -59,30 +59,27 @@ export const ApiContextProvider = ({ children }) => {
     // postComment(1, "yalin", "selam", "meraba")
 
 
-    useEffect(() => {
-        setTimeout(() => {
-
-            const getPosts = async () => {
-                try {
-
-                    const response = await axios
-                        .get("https://portfolioblogapi.azurewebsites.net/api/Post/GetAll")
-                        .then((response) => {
-                            setPosts(response.data);
-                        });
-                    setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readAll: true }));
-                } catch (error) {
-                    console.log(error);
-                }
-
-
-            }
-            getPosts();
-        }, 300)
 
 
 
-    }, [posts]);
+    const getPosts = async () => {
+
+
+        const response = await axios
+            .get("https://portfolioblogapi.azurewebsites.net/api/Post/GetAll")
+            .then((x) => {
+                return x.data;
+            });
+
+
+
+        setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readAll: true }));
+        return response;
+    }
+
+
+
+
 
 
     const getPostsPagination = async (page, pageSize) => {
@@ -116,7 +113,7 @@ export const ApiContextProvider = ({ children }) => {
 
 
     return (
-        <ApiContext.Provider value={{ posts, isLoading, getCommentByPostId, senderIP, setIsLoading, getPostById, getPostsPagination }}>
+        <ApiContext.Provider value={{ getPosts, isLoading, getCommentByPostId, senderIP, setIsLoading, getPostById, getPostsPagination }}>
             {children}
         </ApiContext.Provider>
 
