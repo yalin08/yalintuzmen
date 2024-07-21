@@ -32,14 +32,10 @@ const BlogHome = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const posts = await getPosts();
+                const postLength = await getPosts();
                 const data = await getPostsPagination(currentPage, pageSize);
                 setPosts(data);
-
-                console.log(posts.length / pageSize)
-
-
-                setTotalPages(Math.ceil(posts.length / pageSize));
+                setTotalPages(Math.ceil(postLength / pageSize));
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -49,9 +45,25 @@ const BlogHome = () => {
 
 
 
-    }, []);
+    }, [currentPage]);
 
-    // console.log(totalPages);
+
+
+
+    const chageToLocalTime = (utcTime) => {
+        {
+            const formattedTime = utcTime.split('.')[0] + 'Z';
+
+
+            const date = new Date(formattedTime);
+
+
+            const localTime = date.toLocaleString();
+            return localTime;
+        }
+    }
+
+
 
     return (
 
@@ -75,13 +87,13 @@ const BlogHome = () => {
                                     </p>
                                 </div>
                                 <p className="post-date">
-                                    Posted on {new Date(post.postedDate).toLocaleDateString('en-US', {
-                                        day: 'numeric',
-                                        month: 'numeric',
-                                        year: 'numeric',
-                                        hour: 'numeric',
-                                        minute: 'numeric'
-                                    })}
+
+
+
+
+
+
+                                    Posted on {chageToLocalTime(post.postedDate)}
                                 </p>
                             </div>
                         </Link>

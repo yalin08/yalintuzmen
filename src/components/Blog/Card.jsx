@@ -3,17 +3,28 @@ import { useParams } from 'react-router-dom';
 import { ApiContext } from '../../Context/ApiContext';
 import '../../style/Card.scss';
 import LoadingPage from '../LoadingPage';
+import CommentForm from './CommentForm';
 
 const Card = () => {
     const { id } = useParams(); // Parametre olarak gelen id'yi almak için useParams hook'unu kullanıyoruz
     const { getPostById, isLoading, getCommentByPostId } = useContext(ApiContext);
     const [post, setPost] = useState(null);
-    const [comments, setComments] = useState(null);
+    const [comments, setComments] = useState([]);
 
     const calculateTimeAgo = (date) => {
-        const currentDate = new Date();
+
+        const now = new Date();
+        const year = now.getUTCFullYear();
+        const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(now.getUTCDate()).padStart(2, '0');
+        const hours = String(now.getUTCHours()).padStart(2, '0');
+        const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+        const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+
+        const nowUtc = new Date(`${year}-${month}-${day}T${hours}:${minutes}:${seconds}`);
+
         const postedDate = new Date(date);
-        const timeDifference = currentDate - postedDate;
+        const timeDifference = nowUtc - postedDate;
 
         const intervals = {
             year: timeDifference / (1000 * 60 * 60 * 24 * 365),
@@ -45,14 +56,23 @@ const Card = () => {
         }
 
         fetchComments(id);
+
+
+
+
+
     }, [])
+
 
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
                 const postData = await getPostById(id);
+
                 setPost(postData);
+
+
             } catch (error) {
                 console.error('Error fetching post:', error);
             }
@@ -60,6 +80,10 @@ const Card = () => {
 
 
         fetchPost();
+
+
+
+
     }, [id]);
 
     if (!post) {
@@ -79,13 +103,7 @@ const Card = () => {
                     <div className="card-content">
                         <p>{post.content}</p>
                         <p className='card-date'>
-                            Posted on {new Date(post.postedDate).toLocaleDateString('en-US', {
-                                day: 'numeric',
-                                month: 'numeric',
-                                year: 'numeric',
-                                hour: 'numeric',
-                                minute: 'numeric'
-                            })}
+                            Posted on {new Date(post.postedDate).toLocaleString()}
                         </p>
                     </div>
                 </div>
@@ -95,7 +113,7 @@ const Card = () => {
                 <div className="comment-list">
 
                     {
-                        comments ?
+                        comments.length > 0 ?
                             (comments.map((comment, index) => (
                                 <div key={index} className="comment-card">
 
@@ -111,16 +129,21 @@ const Card = () => {
                                     </div>
 
                                 </div>
-                            ))) :
+                            )))
+                            :
 
                             (<div>
                                 <h2>
-                                    There are no comments,yet.
+                                    There are no comments,be the first one to comment.
                                 </h2>
                             </div>)
 
 
                     }
+
+                    <CommentForm postId={id} />
+
+
                 </div>
             </div>
         </div>
