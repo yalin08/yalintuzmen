@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const Card = () => {
     const { t } = useTranslation();
     const { id } = useParams(); // Parametre olarak gelen id'yi almak için useParams hook'unu kullanıyoruz
-    const { getPostById, isLoading, getCommentByPostId } = useContext(ApiContext);
+    const { getPostById, isLoading, getCommentByPostId, chageToLocalTime } = useContext(ApiContext);
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState([]);
 
@@ -85,7 +85,8 @@ const Card = () => {
                     <div className="card-content">
                         <p>{post.content}</p>
                         <p className="card-date">
-                            {t('postedOn')} {new Date(post.postedDate).toLocaleString()}
+                            {t('postedOn')} {chageToLocalTime(post.postedDate)
+                            }
                         </p>
                     </div>
                 </div>
