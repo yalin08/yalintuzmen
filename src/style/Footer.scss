@@ -3,20 +3,35 @@
 .footer {
     background-color: $primary-color;
     height: 6.5vh;
-    padding-top: 3.5vh;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
     font-family: $main-font;
     color: $text-color;
 
-    &__content {
-        max-width: 1200px;
-        margin: 0 auto;
+    .footer__content {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        width: 100%;
+        justify-content: space-between;
 
-        &__links {
-            margin-bottom: 1rem;
+        .footer__language-selector {
+            display: flex;
+            align-items: center;
+            width: 200px; // Dil değiştirme menüsünün genişliğini ayarlayın
+        }
+
+        p {
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer__links {
+            display: flex;
+            margin-bottom: 0;
+            align-items: center;
 
             a {
                 color: $text-color;
@@ -30,10 +45,6 @@
                     border-bottom: 2px solid $link-hover-color;
                 }
             }
-        }
-
-        p {
-            margin: 0;
         }
     }
 }

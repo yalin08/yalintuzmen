@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../../style/Comment.scss';
 import { ApiContext } from '../../Context/ApiContext';
-
+import Notification from '../Notification';
+import { useTranslation } from 'react-i18next';
 
 const CommentForm = ({ postId }) => {
+    const { t } = useTranslation();
     const { postComment, senderIP } = useContext(ApiContext);
     const [sender, setSender] = useState('');
     const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
+    const [notification, setNotification] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,7 +20,7 @@ const CommentForm = ({ postId }) => {
 
         const commentData = {
             sender,
-            senderIp: ip, // Bu değeri API'den ya da başka bir yerden alabilirsiniz.
+            senderIp: ip,
             title,
             message,
             postId
@@ -28,14 +31,20 @@ const CommentForm = ({ postId }) => {
         setSender('');
         setTitle('');
         setMessage('');
+
+        setNotification(t('commentForm.commentSubmitted'));
+    };
+
+    const closeNotification = () => {
+        setNotification(null);
     };
 
     return (
         <div className="comment-form">
-            <h2>Leave a Comment</h2>
+            <h2>{t('commentForm.leaveComment')}</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="sender">Name</label>
+                    <label htmlFor="sender">{t('commentForm.name')}</label>
                     <input
                         type="text"
                         id="sender"
@@ -45,7 +54,7 @@ const CommentForm = ({ postId }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="title">Title</label>
+                    <label htmlFor="title">{t('commentForm.title')}</label>
                     <input
                         type="text"
                         id="title"
@@ -55,7 +64,7 @@ const CommentForm = ({ postId }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">{t('commentForm.message')}</label>
                     <textarea
                         id="message"
                         value={message}
@@ -63,8 +72,11 @@ const CommentForm = ({ postId }) => {
                         required
                     />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">{t('commentForm.submit')}</button>
             </form>
+            {notification && (
+                <Notification message={notification} onClose={closeNotification} />
+            )}
         </div>
     );
 };

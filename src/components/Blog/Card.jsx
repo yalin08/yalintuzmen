@@ -4,15 +4,16 @@ import { ApiContext } from '../../Context/ApiContext';
 import '../../style/Card.scss';
 import LoadingPage from '../LoadingPage';
 import CommentForm from './CommentForm';
+import { useTranslation } from 'react-i18next';
 
 const Card = () => {
+    const { t } = useTranslation();
     const { id } = useParams(); // Parametre olarak gelen id'yi almak için useParams hook'unu kullanıyoruz
     const { getPostById, isLoading, getCommentByPostId } = useContext(ApiContext);
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState([]);
 
     const calculateTimeAgo = (date) => {
-
         const now = new Date();
         const year = now.getUTCFullYear();
         const month = String(now.getUTCMonth() + 1).padStart(2, '0');
@@ -38,53 +39,34 @@ const Card = () => {
         for (const [unit, value] of Object.entries(intervals)) {
             if (value >= 1) {
                 const roundedValue = Math.floor(value);
-                return `${roundedValue} ${unit}${roundedValue !== 1 ? 's' : ''} ago`;
+                return `${roundedValue} ${unit}${roundedValue !== 1 ? 's' : ''} ${t('timeAgo')}`;
             }
         }
 
-        return 'Just now'; // If less than a second ago
+        return t('justNow'); // If less than a second ago
     };
-
 
     useEffect(() => {
         const fetchComments = async (id) => {
             const com = await getCommentByPostId(id);
-
             setComments(com.data);
-
-
-        }
+        };
 
         fetchComments(id);
-
-
-
-
-
-    }, [])
-
-
+    }, [id, getCommentByPostId]);
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
                 const postData = await getPostById(id);
-
                 setPost(postData);
-
-
             } catch (error) {
                 console.error('Error fetching post:', error);
             }
         };
 
-
         fetchPost();
-
-
-
-
-    }, [id]);
+    }, [id, getPostById]);
 
     if (!post) {
         return <LoadingPage />;
@@ -102,52 +84,34 @@ const Card = () => {
                     </div>
                     <div className="card-content">
                         <p>{post.content}</p>
-                        <p className='card-date'>
-                            Posted on {new Date(post.postedDate).toLocaleString()}
+                        <p className="card-date">
+                            {t('postedOn')} {new Date(post.postedDate).toLocaleString()}
                         </p>
                     </div>
                 </div>
-
-
-
                 <div className="comment-list">
-
-                    {
-                        comments.length > 0 ?
-                            (comments.map((comment, index) => (
-                                <div key={index} className="comment-card">
-
-                                    <div className='sender-container'>
-                                        <div className="comment-sender">{comment.sender}</div>
-                                        <div className="comment-date">{calculateTimeAgo(comment.postedDate)}</div>
-
-                                    </div>
-
-                                    <div className='message-container'>
-                                        <div className="comment-title">{comment.title}</div>
-                                        <div className="comment-message">{comment.message}</div>
-                                    </div>
-
+                    {comments.length > 0 ? (
+                        comments.map((comment, index) => (
+                            <div key={index} className="comment-card">
+                                <div className="sender-container">
+                                    <div className="comment-sender">{comment.sender}</div>
+                                    <div className="comment-date">{calculateTimeAgo(comment.postedDate)}</div>
                                 </div>
-                            )))
-                            :
-
-                            (<div>
-                                <h2>
-                                    There are no comments,be the first one to comment.
-                                </h2>
-                            </div>)
-
-
-                    }
-
+                                <div className="message-container">
+                                    <div className="comment-title">{comment.title}</div>
+                                    <div className="comment-message">{comment.message}</div>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <div>
+                            <h2>{t('noComments')}</h2>
+                        </div>
+                    )}
                     <CommentForm postId={id} />
-
-
                 </div>
             </div>
         </div>
-
     );
 };
 

@@ -14,6 +14,18 @@ export const ApiContextProvider = ({ children }) => {
 
 
 
+    const chageToLocalTime = (utcTime) => {
+        {
+            const formattedTime = utcTime.split('.')[0] + 'Z';
+
+
+            const date = new Date(formattedTime);
+
+
+            const localTime = date.toLocaleString();
+            return localTime;
+        }
+    }
 
 
     const senderIP = async () => {
@@ -124,7 +136,7 @@ export const ApiContextProvider = ({ children }) => {
 
 
     return (
-        <ApiContext.Provider value={{ getPosts, isLoading, getCommentByPostId, senderIP, setIsLoading, getPostById, getPostsPagination, postComment }}>
+        <ApiContext.Provider value={{ getPosts, isLoading, getCommentByPostId, senderIP, chageToLocalTime, setIsLoading, getPostById, getPostsPagination, postComment }}>
             {children}
         </ApiContext.Provider>
 

@@ -1,0 +1,37 @@
+{
+    "commentForm": {
+        "leaveComment": "Yorum Yap",
+        "name": "İsim",
+        "title": "Başlık",
+        "message": "Mesaj",
+        "submit": "Gönder",
+        "commentSubmitted": "Yorumunuz incelenip onaylandığında yayınlanacak."
+    },
+    "postedOn": "Yayınlanma Tarihi",
+    "noComments": "Yorum yok, ilk yorumu siz yapın.",
+    "timeAgo": "önce",
+    "justNow": "Şimdi",
+    "blogHome": {
+        "title": "Blog Gönderileri"
+    },
+    "pagination": {
+        "previous": "Önceki",
+        "next": "Sonraki"
+    },
+    "heroSection": {
+        "title": "Yalın Tüzmen",
+        "subtitle": "Full Stack Developer",
+        "buttonText": "Çalışmalarımı Gör"
+    },
+    "navbar": {
+        "home": "Ana Sayfa",
+        "about": "Hakkında",
+        "projects": "Projeler",
+        "blog": "Blog",
+        "contact": "İletişim"
+    },
+    "footer": {
+        "author": "Yalın Tüzmen",
+        "rights": "Tüm hakları saklıdır."
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "commentForm": {
+        "leaveComment": "Leave a Comment",
+        "name": "Name",
+        "title": "Title",
+        "message": "Message",
+        "submit": "Submit",
+        "commentSubmitted": "Your comment will be published once it is reviewed and approved."
+    },
+    "postedOn": "Posted on",
+    "noComments": "There are no comments, be the first one to comment.",
+    "timeAgo": "ago",
+    "justNow": "Just now",
+    "blogHome": {
+        "title": "Blog Posts"
+    },
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "heroSection": {
+        "title": "Yalın Tüzmen",
+        "subtitle": "Full Stack Developer",
+        "buttonText": "View My Work"
+    },
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "footer": {
+        "author": "Yalın Tüzmen",
+        "rights": "All rights reserved."
+    }
+}

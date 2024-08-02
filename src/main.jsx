@@ -9,6 +9,7 @@ import PostList from './components/Blog/PostList.jsx';
 import { ApiContextProvider } from "./Context/ApiContext.jsx";
 import LoadingPage from './components/LoadingPage.jsx';
 import Card from './components/Blog/Card.jsx';
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
