@@ -7,6 +7,14 @@
         "submit": "Gönder",
         "commentSubmitted": "Yorumunuz incelenip onaylandığında yayınlanacak."
     },
+    "time": {
+        "year": "yıl",
+        "month": "ay",
+        "day": "gün",
+        "hour": "saat",
+        "minute": "dakika",
+        "second": "saniye   "
+    },
     "postedOn": "Yayınlanma Tarihi",
     "noComments": "Yorum yok, ilk yorumu siz yapın.",
     "timeAgo": "önce",

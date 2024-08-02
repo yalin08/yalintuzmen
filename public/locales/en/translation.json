@@ -7,6 +7,14 @@
         "submit": "Submit",
         "commentSubmitted": "Your comment will be published once it is reviewed and approved."
     },
+    "time": {
+        "year": "year",
+        "month": "months",
+        "day": "days",
+        "hour": "hours",
+        "minute": "minutes",
+        "second": "seconds"
+    },
     "postedOn": "Posted on",
     "noComments": "There are no comments, be the first one to comment.",
     "timeAgo": "ago",

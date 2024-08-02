@@ -39,7 +39,7 @@ const Card = () => {
         for (const [unit, value] of Object.entries(intervals)) {
             if (value >= 1) {
                 const roundedValue = Math.floor(value);
-                return `${roundedValue} ${unit}${roundedValue !== 1 ? 's' : ''} ${t('timeAgo')}`;
+                return `${roundedValue} ${t(`time.${unit}`)} ${t('timeAgo')}`;
             }
         }
 
