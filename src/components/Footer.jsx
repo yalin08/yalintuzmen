@@ -4,7 +4,7 @@ import '../style/Footer.scss';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
@@ -52,10 +52,10 @@ const Footer = () => {
                     options={options}
                     onChange={(option) => changeLanguage(option.value)}
                     styles={customStyles}
-                    defaultValue={options.find(option => option.value === i18n.language)}
+                    defaultValue={options.find(option => option.value === 'en')}
                     menuPlacement="top" // Menü yukarı doğru açılsın
                 />
-                <p>&copy; 2024 {t('footer.author')}. {t('footer.rights')}</p>
+                <p>&copy; 2024 {i18n.t('footer.author')}. {i18n.t('footer.rights')}</p>
             </div>
         </footer>
     );
