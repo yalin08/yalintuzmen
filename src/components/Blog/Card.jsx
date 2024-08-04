@@ -8,11 +8,18 @@ import { useTranslation } from 'react-i18next';
 
 const Card = () => {
     const { t } = useTranslation();
-    const { id } = useParams(); // Parametre olarak gelen id'yi almak için useParams hook'unu kullanıyoruz
-    const { getPostById, isLoading, chageToLocalTime } = useContext(ApiContext);
+    const { id } = useParams();
+    const { getPostById, getCommentByPostId, chageToLocalTime } = useContext(ApiContext);
     const [post, setPost] = useState(null);
+    const [comments, setComments] = useState(null);
+
+
+
+
 
     useEffect(() => {
+
+
         const fetchPost = async () => {
             try {
                 const postData = await getPostById(id);
@@ -23,33 +30,48 @@ const Card = () => {
         };
 
         fetchPost();
-    }, [id, getPostById]);
 
-    if (!post) {
-        return <LoadingPage />;
+        const fetchComments = async (id) => {
+            const com = await getCommentByPostId(id);
+            setComments(com.data);
+        };
+
+        fetchComments(id);
+
+
+    }, [id]);
+
+
+
+
+    if (post && comments) {
+
+        return (
+            <div className="container">
+                <div className="card">
+                    <div className="card-header">
+                        <h1 className="card-title">{post.title}</h1>
+                    </div>
+                    <div className="card-body">
+                        <div className="card-image">
+                            <img src={post.imageUrl} alt={post.title} />
+                        </div>
+                        <div className="card-content">
+                            <p>{post.content}</p>
+                            <p className="card-date">
+                                {t('postedOn')} {chageToLocalTime(post.postedDate)}
+                            </p>
+                        </div>
+                    </div>
+                    <Comments comments={comments} postId={id} />
+                </div>
+            </div>
+        );
+
+
     }
 
-    return (
-        <div className="container">
-            <div className="card">
-                <div className="card-header">
-                    <h1 className="card-title">{post.title}</h1>
-                </div>
-                <div className="card-body">
-                    <div className="card-image">
-                        <img src={post.imageUrl} alt={post.title} />
-                    </div>
-                    <div className="card-content">
-                        <p>{post.content}</p>
-                        <p className="card-date">
-                            {t('postedOn')} {chageToLocalTime(post.postedDate)}
-                        </p>
-                    </div>
-                </div>
-                <Comments postId={id} />
-            </div>
-        </div>
-    );
+    return <LoadingPage />;
 };
 
 export default Card;

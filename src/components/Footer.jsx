@@ -53,6 +53,7 @@ const Footer = () => {
                     onChange={(option) => changeLanguage(option.value)}
                     styles={customStyles}
                     menuPlacement="top" // Menü yukarı doğru açılsın
+                    value={options.find(option => option.value === i18n.language)} // Şu anda seçili olan dil
                 />
                 <p>&copy; 2024 {i18n.t('footer.author')}. {i18n.t('footer.rights')}</p>
             </div>

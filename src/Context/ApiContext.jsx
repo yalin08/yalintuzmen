@@ -6,10 +6,11 @@ export const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
 
-    const [comments, setComments] = useState([]);
+
     const [isLoading, setIsLoading] = useState({
-        readPage: true,
-        readAll: true
+        readPage: false,
+        readAll: false,
+
     });
 
 
@@ -57,14 +58,14 @@ export const ApiContextProvider = ({ children }) => {
         try {
             console.log(commentData);
             const response = await axios.post('https://portfolioblogapi.azurewebsites.net/api/CommentRequest/CreateComment', commentData);
-            setComments(prevComments => [...prevComments, response.data]);
+
         } catch (error) {
             console.error("Error creating comment:", error);
         }
     };
 
 
-    // postComment(1, "yalin", "selam", "meraba")
+
 
 
     const options = {
@@ -80,8 +81,6 @@ export const ApiContextProvider = ({ children }) => {
 
 
     const getPosts = async () => {
-
-
         const response = await axios
             .get("https://portfolioblogapi.azurewebsites.net/api/Post/GetCount")
             .then((x) => {
@@ -90,10 +89,9 @@ export const ApiContextProvider = ({ children }) => {
 
 
 
-
-
         setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readAll: true }));
         return response;
+
     }
 
 
@@ -103,12 +101,9 @@ export const ApiContextProvider = ({ children }) => {
 
     const getPostsPagination = async (page, pageSize) => {
         try {
-
-
             const response = await axios.get(`https://portfolioblogapi.azurewebsites.net/api/Post/GetAllPagination?page=${page}&pageSize=${pageSize}`);
-
-
             setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readPage: true }));
+
             return response.data;
         } catch (error) {
             console.log("Error fetching posts:", error);
@@ -123,7 +118,7 @@ export const ApiContextProvider = ({ children }) => {
     const getPostById = async (id) => {
         try {
             const response = await axios.get(`https://portfolioblogapi.azurewebsites.net/api/Post/GetById?id=${id}`);
-
+            setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readPost: true }));
 
             return response.data; // Post detayını döndürür
         } catch (error) {

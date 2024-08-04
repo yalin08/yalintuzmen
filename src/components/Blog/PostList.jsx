@@ -37,7 +37,8 @@ const BlogHome = () => {
             }
         };
         fetchPosts();
-    }, [currentPage, getPosts, getPostsPagination]);
+    }, [currentPage]);
+
 
     return (
         (isLoading.readPage && isLoading.readAll) ? (

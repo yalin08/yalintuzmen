@@ -1,21 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { ApiContext } from '../../Context/ApiContext';
+import React from 'react';
 import CommentForm from './CommentForm';
 import { useTranslation } from 'react-i18next';
 import '../../style/Comments.scss';
-const Comments = ({ postId }) => {
+
+const Comments = ({ comments, postId }) => {
     const { t } = useTranslation();
-    const { getCommentByPostId } = useContext(ApiContext);
-    const [comments, setComments] = useState([]);
-
-    useEffect(() => {
-        const fetchComments = async (id) => {
-            const com = await getCommentByPostId(id);
-            setComments(com.data);
-        };
-
-        fetchComments(postId);
-    }, [postId, getCommentByPostId]);
 
     const calculateTimeAgo = (date) => {
         const now = new Date();
