@@ -1,6 +1,5 @@
 @import '../index.scss';
 
-
 .navbar {
     position: fixed;
     z-index: 1000;
@@ -8,14 +7,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
     color: $text-color;
     transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
     font-family: $main-font;
 
     &__logo {
-        padding: 0 2rem 0 2rem;
+        padding: 0 2rem;
         font-size: 1.5rem;
         font-weight: bold;
 
@@ -34,7 +31,7 @@
         list-style: none;
         display: flex;
         gap: 2rem;
-        padding: 0 2rem 0 2rem;
+        padding: 0 2rem;
 
         li {
             position: relative;
@@ -70,21 +67,37 @@
         }
     }
 
-    &.scrolled {
-        padding: 0.1rem 0.2rem;
-        background-color: rgba($color: $primary-color, $alpha: 0.95)
-    }
+    &__toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        left: 3%;
+        transform: translateX(-50%);
 
-    &.notScrolled {
-        padding: 1rem 0 1.1rem;
-
-        background-color: rgba($color: $primary-color, $alpha: 0.4);
-
-        &:hover {
-            background-color: rgba($color: $primary-color, $alpha: 0.8);
+        span {
+            height: 3px;
+            width: 25px;
+            background: $text-color;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
     }
 
+
+
+    @media (min-width: 769px) {
+        &.notScrolled {
+            padding: 1rem 0 1.1rem;
+            background-color: rgba($color: $primary-color, $alpha: 0.4);
+
+            &:hover {
+                background-color: rgba($color: $primary-color, $alpha: 0.8);
+            }
+        }
+    }
 }
 
 .navbar-brand {
@@ -103,12 +116,10 @@
     }
 }
 
-
 .navbar-links {
     list-style: none;
     display: flex;
     gap: 3rem;
-
     padding: 0 3rem;
     transition: transform 0.3s ease-in-out;
 
@@ -143,5 +154,47 @@
     li a:hover {
         color: $link-hover-color;
     }
+}
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+        background-color: rgba($color: $primary-color, $alpha: 0.8);
+
+        &__logo {
+            padding: 0;
+            display: none;
+        }
+
+        &__toggle {
+            display: flex;
+
+            align-items: center;
+        }
+
+        &__links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+
+            li {
+                width: 100%;
+                text-align: left;
+                padding: 1rem 2rem;
+
+                a {
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+
+        &.open .navbar__links {
+            display: flex;
+        }
+    }
 }

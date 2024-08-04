@@ -6,6 +6,7 @@ import '../style/Navbar.scss'; // Stil dosyasını daha sonra oluşturacağız
 const Navbar = () => {
     const { t } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,10 +23,19 @@ const Navbar = () => {
         };
     }, []);
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <nav className={`navbar ${isScrolled ? 'scrolled' : 'notScrolled'}`}>
+        <nav className={`navbar ${isScrolled ? 'scrolled' : 'notScrolled'} ${isOpen ? 'open' : ''}`}>
             <div className="navbar__logo">
                 <a href="/">MyPortfolio</a>
+            </div>
+            <div className="navbar__toggle" onClick={toggleMenu}>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <ul className="navbar__links">
                 <li><Link to="/">{t('navbar.home')}</Link></li>
