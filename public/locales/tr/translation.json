@@ -33,7 +33,7 @@
     },
     "navbar": {
         "home": "Ana Sayfa",
-        "about": "Hakkında",
+        "about": "Hakkımda",
         "projects": "Projeler",
         "blog": "Blog",
         "contact": "İletişim"
@@ -41,5 +41,9 @@
     "footer": {
         "author": "Yalın Tüzmen",
         "rights": "Tüm hakları saklıdır."
+    },
+    "NotFound": {
+        "NotFound": "Page Not Found",
+        "GoBack": "Anasayfaya Dön"
     }
 }

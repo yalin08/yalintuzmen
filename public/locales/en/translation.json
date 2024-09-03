@@ -41,5 +41,9 @@
     "footer": {
         "author": "Yalın Tüzmen",
         "rights": "All rights reserved."
+    },
+    "NotFound": {
+        "NotFound": "Page Not Found",
+        "GoBack": "Go Back Home"
     }
 }
