@@ -9,6 +9,7 @@ import PostList from './components/Blog/PostList.jsx';
 import { ApiContextProvider } from "./Context/ApiContext.jsx";
 import LoadingPage from './components/LoadingPage.jsx';
 import Card from './components/Blog/Card.jsx';
+import About from './components/About.jsx'
 import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/loading" element={<LoadingPage />} />
+          <Route path="/about" element={<About />} />
           <Route path="/post/:id" element={<Card />} />
           <Route path="/blog/*" element={<PostList />} />
           <Route path="*" element={<NotFound />} />
