@@ -87,8 +87,10 @@
     }
 
 
-
     @media (min-width: 769px) {
+        background-color: rgba($color: $primary-color, $alpha: 0.8);
+
+
         &.notScrolled {
             padding: 1rem 0 1.1rem;
             background-color: rgba($color: $primary-color, $alpha: 0.4);
@@ -161,8 +163,9 @@
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1.5rem 2rem;
+        padding: 1.8rem 2rem;
         background-color: rgba($color: $primary-color, $alpha: 0.8);
+
 
         &__logo {
             padding: 0;
@@ -171,7 +174,10 @@
 
         &__toggle {
             display: flex;
-
+            padding: 6px 4px 2px 4px;
+            margin: 0 0 0 15px;
+            border: 1px $text-color solid;
+            border-radius: 5px;
             align-items: center;
         }
 

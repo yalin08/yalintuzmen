@@ -6,7 +6,7 @@ export const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
 
-
+    const apiLink = "https://portfolioblogapiyt.azurewebsites.net";
     const [isLoading, setIsLoading] = useState({
         readPage: false,
         readAll: false,
@@ -44,7 +44,7 @@ export const ApiContextProvider = ({ children }) => {
     const getCommentByPostId = async (postId) => {
 
         const response = await axios
-            .get("https://portfolioblogapi.azurewebsites.net/api/Comment/GetComment?postId=" + postId).then((x) => {
+            .get(apiLink + "/api/Comment/GetComment?postId=" + postId).then((x) => {
                 return x;
             })
 
@@ -57,7 +57,7 @@ export const ApiContextProvider = ({ children }) => {
     const postComment = async (commentData) => {
         try {
             console.log(commentData);
-            const response = await axios.post('https://portfolioblogapi.azurewebsites.net/api/CommentRequest/CreateComment', commentData);
+            const response = await axios.post(apiLink + '/api/CommentRequest/CreateComment', commentData);
 
         } catch (error) {
             console.error("Error creating comment:", error);
@@ -82,7 +82,7 @@ export const ApiContextProvider = ({ children }) => {
 
     const getPosts = async () => {
         const response = await axios
-            .get("https://portfolioblogapi.azurewebsites.net/api/Post/GetCount")
+            .get(apiLink + "/api/Post/GetCount")
             .then((x) => {
                 return x.data;
             });
@@ -101,7 +101,7 @@ export const ApiContextProvider = ({ children }) => {
 
     const getPostsPagination = async (page, pageSize) => {
         try {
-            const response = await axios.get(`https://portfolioblogapi.azurewebsites.net/api/Post/GetAllPagination?page=${page}&pageSize=${pageSize}`);
+            const response = await axios.get(apiLink + `/api/Post/GetAllPagination?page=${page}&pageSize=${pageSize}`);
             setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readPage: true }));
 
             return response.data;
@@ -117,7 +117,7 @@ export const ApiContextProvider = ({ children }) => {
 
     const getPostById = async (id) => {
         try {
-            const response = await axios.get(`https://portfolioblogapi.azurewebsites.net/api/Post/GetById?id=${id}`);
+            const response = await axios.get(apiLink + `/api/Post/GetById?id=${id}`);
             setIsLoading((prevIsLoading) => ({ ...prevIsLoading, readPost: true }));
 
             return response.data; // Post detayını döndürür
