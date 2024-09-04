@@ -47,25 +47,28 @@ const Card = () => {
     if (post && comments) {
 
         return (
-            <div className="container">
-                <div className="card">
-                    <div className="card-header">
-                        <h1 className="card-title">{post.title}</h1>
-                    </div>
-                    <div className="card-body">
-                        <div className="card-image">
-                            <img src={post.imageUrl} alt={post.title} />
+            <div className='post'>
+                <div className="container">
+                    <div className="card">
+                        <div className="card-header">
+                            <h1 className="card-title">{post.title}</h1>
                         </div>
-                        <div className="card-content">
-                            <p>{post.content}</p>
-                            <p className="card-date">
-                                {t('postedOn')} {chageToLocalTime(post.postedDate)}
-                            </p>
+                        <div className="card-body">
+                            <div className="card-image">
+                                <img src={post.imageUrl} alt={post.title} />
+                            </div>
+                            <div className="card-content">
+                                <p>{post.content}</p>
+                                <p className="card-date">
+                                    {t('postedOn')} {chageToLocalTime(post.postedDate)}
+                                </p>
+                            </div>
                         </div>
+                        <Comments comments={comments} postId={id} />
                     </div>
-                    <Comments comments={comments} postId={id} />
                 </div>
             </div>
+
         );
 
 

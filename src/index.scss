@@ -11,4 +11,84 @@ $background-color: #D3D3D3; // Light Gray
 body {
     margin: 0 0 0 0;
     font-family: $main-font;
+    background: linear-gradient(145deg, $primary-color, $background-color);
+    transition: background 0.5s ease;
+    /* Smooth gradient transition */
+}
+
+
+.home-background {
+    background: linear-gradient(145deg, $primary-color, $secondary-color);
+    /* Background for Home */
+}
+
+.about-background {
+    @keyframes gradient-animation {
+        0% {
+            background: linear-gradient(145deg, $primary-color, $background-color);
+        }
+
+        10% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 90%),
+                    mix($background-color, $secondary-color, 90%));
+        }
+
+        20% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 80%),
+                    mix($background-color, $secondary-color, 80%));
+        }
+
+        30% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 70%),
+                    mix($background-color, $secondary-color, 70%));
+        }
+
+        40% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 60%),
+                    mix($background-color, $secondary-color, 60%));
+        }
+
+        50% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 50%),
+                    mix($background-color, $secondary-color, 50%));
+        }
+
+        60% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 40%),
+                    mix($background-color, $secondary-color, 40%));
+        }
+
+        70% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 30%),
+                    mix($background-color, $secondary-color, 30%));
+        }
+
+        80% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 20%),
+                    mix($background-color, $secondary-color, 20%));
+        }
+
+        90% {
+            background: linear-gradient(145deg,
+                    mix($primary-color, $link-hover-color, 10%),
+                    mix($background-color, $secondary-color, 10%));
+        }
+
+        100% {
+
+            background: linear-gradient(145deg, $link-hover-color, $secondary-color);
+        }
+    }
+
+    background: linear-gradient(145deg, $link-hover-color, $secondary-color);
+
+    animation: gradient-animation 0.3s ease forwards;
 }

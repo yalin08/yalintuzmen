@@ -1,4 +1,10 @@
 {
+    "about": {
+        "whoAmi": "Who Am I",
+        "whoAmiDescription": "I am always eager to learn new things and improve myself. I enjoy being involved in creative processes and turning my ideas into reality. I take great pleasure in being productive and seeing the results. I strive to continuously advance myself through the experiences I gain from different projects.",
+        "tech": "My Skillset",
+        "contact": "Contact Me!"
+    },
     "commentForm": {
         "leaveComment": "Leave a Comment",
         "name": "Name",
