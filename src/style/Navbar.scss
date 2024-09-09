@@ -5,27 +5,13 @@
     z-index: 1000;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     color: $text-color;
     transition: padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
     font-family: $main-font;
 
-    &__logo {
-        padding: 0 2rem;
-        font-size: 1.5rem;
-        font-weight: bold;
 
-        a {
-            text-decoration: none;
-            color: $text-color;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: $secondary-color;
-            }
-        }
-    }
 
     &__links {
         list-style: none;
@@ -166,11 +152,6 @@
         padding: 1.8rem 2rem;
         background-color: rgba($color: $primary-color, $alpha: 0.8);
 
-
-        &__logo {
-            padding: 0;
-            display: none;
-        }
 
         &__toggle {
             display: flex;

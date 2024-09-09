@@ -29,9 +29,7 @@ const Navbar = () => {
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : 'notScrolled'} ${isOpen ? 'open' : ''}`}>
-            <div className="navbar__logo">
-                <a href="/">MyPortfolio</a>
-            </div>
+
             <div className="navbar__toggle" onClick={toggleMenu}>
                 <span></span>
                 <span></span>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Hero.scss';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -83,7 +84,7 @@ const HeroSection = () => {
       <div className="hero__content">
         <h1>{t('heroSection.title')}</h1>
         <p>{t('heroSection.subtitle')}</p>
-        <a href="#projects" className="hero__button">{t('heroSection.buttonText')}</a>
+        <Link to="/projects" className="hero__button">{t('heroSection.buttonText')}</Link>
       </div>
     </section>
   );
