@@ -1,7 +1,5 @@
 import React from 'react'
-import eCommerce from '../assets/img/projects/eCommerce.png'
-import hr from '../assets/img/projects/hr.png'
-import portfolio from '../assets/img/projects/portfolio.png'
+
 import '../style/Projects.scss'
 import { useTranslation } from 'react-i18next';
 const Projects = () => {
@@ -15,7 +13,7 @@ const Projects = () => {
 
 
                     <div className='projectImages'>
-                        <img src={portfolio}></img>
+                        <img src="public/img/projects/portfolio.png"></img>
                     </div>
 
                     <div className='projectDetails'>
@@ -45,7 +43,7 @@ const Projects = () => {
 
 
                     <div className='projectImages'>
-                        <img src={hr}></img>
+                        <img src="public/img/projects/hr.png"></img>
                     </div>
 
                     <div className='projectDetails'>
@@ -71,7 +69,7 @@ const Projects = () => {
 
 
                     <div className='projectImages'>
-                        <img src={eCommerce}></img>
+                        <img src="public/img/projects/eCommerce.png"></img>
                     </div>
 
                     <div className='projectDetails'>
