@@ -7,6 +7,10 @@ $text-color: #fafafa;
 $link-hover-color: #8A2BE2; // Blue Violet
 $background-color: #D3D3D3; // Light Gray
 
+p,
+pre {
+    font-family: "Montserrat", sans-serif;
+}
 
 body {
     margin: 0 0 0 0;
@@ -16,6 +20,29 @@ body {
     /* Smooth gradient transition */
 }
 
+
+
+.button {
+    margin-top: 2rem;
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: $text-color;
+        background-color: $secondary-color;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        transition: color 0.3s ease;
+
+        &:hover {
+            background-color: $link-hover-color;
+            color: $primary-color;
+        }
+    }
+}
 
 .home-background {
     background: linear-gradient(145deg, $primary-color, $secondary-color);

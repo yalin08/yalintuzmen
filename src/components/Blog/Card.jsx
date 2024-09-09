@@ -58,7 +58,7 @@ const Card = () => {
                                 <img src={post.imageUrl} alt={post.title} />
                             </div>
                             <div className="card-content">
-                                <p>{post.content}</p>
+                                <pre>{post.content}</pre>
                                 <p className="card-date">
                                     {t('postedOn')} {chageToLocalTime(post.postedDate)}
                                 </p>

@@ -5,6 +5,16 @@
         "tech": "My Skillset",
         "contact": "Contact Me!"
     },
+    "projects": {
+        "projectLink": "Project Link",
+        "githubLink": "Github Link",
+        "portfolio": "Portfolio Site",
+        "portfolioContent": "Portfolio site project that I worked on during my free time throughout my internship.\nI designed the frontend using React.js and integrated a blog feature into the site by using the API I developed with ASP.NET.\n\nYou are currently viewing this project!",
+        "hrProject": "Human Resources Project",
+        "hrContent": "In this application, which we developed to optimize human resources management for companies, site administrators can view and edit companies and their managers; company employees can submit advance payment and leave requests to their managers through the platform, and managers can respond to these requests.\n\nIn this project, I focused on Identity and JWT structures and took on various tasks on both the back-end and front-end sides.",
+        "eCommerce": "E-Commerce Site",
+        "eCommerceContent": "I developed the Order entity using Entity Framework for an MVC-based e-commerce application. I added features to track, update, and manage order statuses in the admin panel."
+    },
     "commentForm": {
         "leaveComment": "Leave a Comment",
         "name": "Name",

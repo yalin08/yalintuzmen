@@ -1,0 +1,110 @@
+@import '../index.scss';
+
+.projects {
+    min-height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .container {
+        margin: 5rem;
+        box-shadow: 0 5px 15px rgba($primary-color, 0.5);
+
+
+        padding: 0 5rem 0 5rem;
+
+        @media (max-width: 768px) {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+
+        border-radius: 25px;
+        background-color: $background-color;
+        display: flex;
+        flex-direction: column;
+
+
+
+        .project {
+
+            display: flex;
+            flex-direction: row;
+
+
+
+            .projectDetails {
+                width: 50%;
+
+                align-content: center;
+            }
+
+            .projectImages {
+                width: 50%;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+
+            &:nth-child(even) {
+                .projectImages {
+                    order: 2;
+
+                }
+
+                .projectDetails {
+                    order: 1;
+                }
+            }
+
+            &:nth-child(odd) {
+                .projectImages {
+                    order: 1;
+
+                }
+
+                .projectDetails {
+                    order: 2;
+                }
+            }
+
+
+            .buttons {
+                display: flex;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+
+
+                .projectDetails {
+                    width: 100%;
+                }
+
+                .projectImages {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                    }
+
+                }
+            }
+
+
+        }
+    }
+}
+
+
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

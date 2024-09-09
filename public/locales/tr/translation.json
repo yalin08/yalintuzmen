@@ -5,6 +5,16 @@
         "tech": "Kullanabildiğim teknolojiler",
         "contact": "Bana Ulaş"
     },
+    "projects": {
+        "projectLink": "Proje Linki",
+        "githubLink": "Github Linki",
+        "portfolio": "Portfolyo Sitesi",
+        "portfolioContent": "Stajım süresince boş zamanlarımda üzerinde çalıştığım portfolyo sitesi projesi.\nFrontend kısmını React.js ile tasarladım ve ASP.NET ile geliştirdiğim API'yi kullanarak siteye blog özelliği entegre ettim.\n\nŞu anda bu projeyi görüntülüyorsunuz!",
+        "hrProject": "İnsan kaynakları Projesi",
+        "hrContent": "Firmaların insan kaynakları yönetimini optimize etmek amacıyla geliştirdiğimiz bu uygulamada, site yöneticileri şirketleri ve yöneticilerini görüntüleyip düzenleyebilir; şirket çalışanları, bu platform üzerinden yöneticilerine avans ve izin taleplerinde bulunabilir, yöneticiler ise bu talepleri yanıtlayabilir.\n\nBu projede Identity ve JWT yapılarına odaklandım ve hem back-end hem de front-end tarafında çeşitli görevler üstlendim.",
+        "eCommerce": "E-Ticaret Sitesi",
+        "eCommerceContent": "MVC tabanlı bir e-ticaret uygulaması için Entity Framework kullanarak Order (Sipariş) entity’sini geliştirdim.Admin panelinde sipariş durumlarını takip edip güncelleme ve yönetme özellikleri ekledim."
+    },
     "commentForm": {
         "leaveComment": "Yorum Yap",
         "name": "İsim",

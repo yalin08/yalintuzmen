@@ -11,6 +11,7 @@ import LoadingPage from './components/LoadingPage.jsx';
 import Card from './components/Blog/Card.jsx';
 import About from './components/About.jsx';
 import './i18n';
+import Projects from './components/Projects.jsx';
 
 const App = () => {
   const location = useLocation();
@@ -56,6 +57,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/post/:id" element={<Card />} />
         <Route path="/blog/*" element={<PostList />} />
+        <Route path="/Projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

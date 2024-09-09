@@ -53,12 +53,15 @@
                 margin-top: 1rem;
                 text-align: start;
 
-                p {
+
+                p,
+                pre {
                     padding: 0 15px 0 15px;
                     font-size: 1.3rem;
                     color: $primary-color;
                     line-height: 1.6;
                 }
+
 
                 .card-date {
                     margin-top: 10px;
